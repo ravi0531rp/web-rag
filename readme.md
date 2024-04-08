@@ -6,7 +6,7 @@ links available in the page recursively.
 * And then, based off of that data, we will use our LLM based backend to answer queries.
 
 
-## Todo List
+## Tasks
 
 - [ ] Create a dummy website
 - [ ] Create the web scraper.
