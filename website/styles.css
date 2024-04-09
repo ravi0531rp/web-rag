@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeppLaud - Satellite Imagery Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Welcome to ZeppLaud</h1>
+            <p>Your partner in satellite imagery solutions</p>
+        </div>
+    </header>
+    <section id="services">
+        <div class="section-container">
+            <h2>Our Services</h2>
+            <p>We specialize in providing advanced satellite imagery software solutions, including:</p>
+            <ul>
+                <li>Satellite Images</li>
+                <li>AI Models for Image Analysis</li>
+                <li>Drone Imagery Solutions</li>
+            </ul>
+        </div>
+    </section>
+    <section id="how-we-do-it">
+        <div class="section-container">
+            <h2>How We Do It</h2>
+            <p>At ZeppLaud, we leverage cutting-edge technology and expertise to deliver top-notch satellite imagery solutions. Our process involves:</p>
+            <ul>
+                <li>Advanced Data Collection Techniques</li>
+                <li>Machine Learning Algorithms</li>
+                <li>Customized Software Development</li>
+            </ul>
+        </div>
+    </section>
+    <section id="products">
+        <div class="section-container">
+            <h2>Our Products</h2>
+            <div class="product-box">
+                <a href="satellite-images.html">
+                    <div class="box">Satellite Images</div>
+                </a>
+                <a href="ai-models.html">
+                    <div class="box">AI Models</div>
+                </a>
+                <a href="drone-imagery.html">
+                    <div class="box">Drone Imagery</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="client-testimonials">
+        <div class="section-container">
+            <h2>Words from Our Clients</h2>
+            <blockquote>
+                "ZeppLaud has revolutionized how we utilize satellite imagery. Their software solutions are unparalleled."
+                <footer>- John Doe, CEO at Example Corp</footer>
+            </blockquote>
+            <blockquote>
+                "The AI models provided by ZeppLaud have significantly improved our analysis process."
+                <footer>- Jane Smith, Head of Research at ABC Company</footer>
+            </blockquote>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 ZeppLaud. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
