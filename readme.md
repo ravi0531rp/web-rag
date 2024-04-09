@@ -4,7 +4,7 @@
 * Given a web page's address, our application will try to parse data in that page as well as all the
 links available in the page recursively. 
 * And then, based off of that data, we will use our LLM based backend to answer queries.
-
+* Hosted [Website](https://ravi0531rp.github.io/web-rag/) using Github IO.
 
 ## Elements
 
