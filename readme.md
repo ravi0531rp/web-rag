@@ -8,14 +8,22 @@ links available in the page recursively.
 
 ## Elements
 
--  Create a docs website
--  Create the web scraper
--  Vector Store
--  LLM Backend
--  Query FrontEnd
+* We are using html and css for creating a dummy website. Later, we will try to handle all websites.
+* Using requests and beautifulSoup, we scrape the pages contained.
+* Using Google Generative AI embeddings & FAISS Vector DB, we are creating a database whenever that 
+script is triggered.
+* With the help of Gemini Pro which we are using as the backend LLM, we are querying our questions.
+* For our frontend, streamlit is being used.
+
 
 
 ## KEY MILESTONES
-- [ ] Create a simple website with some links to other pages ; web scraper ; LLM Backend
-- [ ] Now add more data like Tables, Images and links to external webpages & handle that.
-- [ ] Deploy on Cloud (Preferably AWS)
+
+- [✅ ] Basic Chat Test
+- [ ] create a new script that runs the scraping dynamically and then runs the vector store. 
+- [ ] Add some criteria for reload or not, whether we want to scrape fresh for vector DB or just chat using current settings.
+- [ ] Streamlit frontend
+- [ ] Generalize it for more websites other than just github IO websites.
+- [ ]  Add options for depth control because external pages can contain huge amounts of links.
+- [ ] Dockerize the project.
+- [ ] More to follow..
