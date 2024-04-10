@@ -19,6 +19,8 @@ script is triggered.
 
 ## KEY MILESTONES
 
+- [X] Create a website and host using Github IO.
+- [X] Web Scraper with requests and bs4.
 - [X] Basic Chat Test
 - [ ] create a new script that runs the scraping dynamically and then runs the vector store. 
 - [ ] Add some criteria for reload or not, whether we want to scrape fresh for vector DB or just chat using current settings.
