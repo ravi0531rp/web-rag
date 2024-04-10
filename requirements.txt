@@ -1,0 +1,11 @@
+openai
+langchain
+streamlit
+faiss-cpu
+google-generativeai
+python-dotenv
+langchain_google_genai
+python-dotenv
+langchain-community
+langserve
+beautifulsoup4
