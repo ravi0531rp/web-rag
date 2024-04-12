@@ -91,7 +91,6 @@ def extract_text_from_page(url):
 def run_complete(
     homepage_url,
     project_name,
-    save_db=False,
     scrape_fresh=True,
     read_fresh=True,
     scrape_depth=None,
@@ -121,14 +120,17 @@ def run_complete(
 
     logger.debug(extracted_data_dict)
 
+    return extracted_data_dict
+
 
 if __name__ == "__main__":
     homepage_url = "https://ravi0531rp.github.io/web-rag/index.html"
-    run_complete(
+    extracted_data_dict = run_complete(
         homepage_url,
         "WEB_RAG_DEMO",
-        save_db=False,
         scrape_fresh=False,
         read_fresh=False,
         scrape_depth=None,
     )
+
+
