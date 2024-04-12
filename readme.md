@@ -25,6 +25,7 @@ script is triggered.
 - [ ] create a new script that runs the scraping dynamically and then runs the vector store. 
 - [ ] Add some criteria for reload or not, whether we want to scrape fresh for vector DB or just chat using current settings.
 - [ ] Streamlit frontend
+- [ ] Make LLMs and VectoreStores configurable. Dont just stick to a specific one.
 - [ ] Generalize it for more websites other than just github IO websites.
 - [ ]  Add options for depth control because external pages can contain huge amounts of links.
 - [ ] Dockerize the project.
