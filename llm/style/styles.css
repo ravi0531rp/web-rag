@@ -1,0 +1,19 @@
+.chat-container {
+    margin-bottom: 20px;
+}
+
+.user-message {
+    background-color: #DCF8C6;
+    color: black; /* Changed text color to black */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.bot-message {
+    background-color: #F0F0F0;
+    color: black; /* Changed text color to black */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
