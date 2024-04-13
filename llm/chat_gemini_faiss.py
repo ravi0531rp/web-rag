@@ -18,7 +18,7 @@ os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
-def get_text_chunks(text, chunk_size=10000, chunk_overlap=1000):
+def get_text_chunks(text, chunk_size=50000, chunk_overlap=10000):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
@@ -74,12 +74,12 @@ def user_input(user_question, project_name, embedding_model = "models/embedding-
     )
 
     logger.success(response)
+    return response
 
 
 
 
-
-def run(
+def run_pipeline(
     homepage_url,
     user_question,
     project_name,
@@ -112,7 +112,8 @@ def run(
         else:
             logger.error(f"No vector DB found for {project_name}. Please enable the creation of the Database atleast once!")
         
-    user_input(user_question = user_question, project_name = project_name, embedding_model = embedding_model, llm = llm, temperature= temperature)
+    response = user_input(user_question = user_question, project_name = project_name, embedding_model = embedding_model, llm = llm, temperature= temperature)
+    return response
 
 if __name__ == "__main__":
     homepage_url = "https://ravi0531rp.github.io/web-rag/index.html"
@@ -120,7 +121,7 @@ if __name__ == "__main__":
         "What is the accuracy for Object Detection Classifier and which model is used?"
     )
     project_name = "WEB_RAG_DEMO"
-    run(homepage_url, 
+    response = run_pipeline(homepage_url, 
         user_question, 
         project_name, 
         scrape_fresh = False,
