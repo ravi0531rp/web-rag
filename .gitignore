@@ -1,5 +1,6 @@
 */scraper/datasets.json
 llm/faiss_index
+llm/assets
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
