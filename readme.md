@@ -41,18 +41,18 @@ script is triggered.
 <table>
   <tr>
     <td align="center">
-      <img src="assets/home.png" alt="Alt Text 1" width="400">
+      <img src="assets/home.png" alt="Alt Text 1" width="600">
     </td>
     <td align="center">
-      <img src="assets/options.png" alt="Alt Text 2" width="400">
+      <img src="assets/options.png" alt="Alt Text 2" width="600">
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="assets/query.png" alt="Alt Text 3" width="400">
+      <img src="assets/query.png" alt="Alt Text 3" width="600">
     </td>
     <td align="center">
-      <img src="assets/response.png" alt="Alt Text 4" width="400">
+      <img src="assets/response.png" alt="Alt Text 4" width="600">
     </td>
   </tr>
 </table>
