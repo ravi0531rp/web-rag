@@ -37,22 +37,9 @@ script is triggered.
 - [ ] Dockerize the project.
 - [ ] More to follow..
 
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="assets/home.png" alt="Alt Text 1" width="600">
-    </td>
-    <td align="center">
-      <img src="assets/options.png" alt="Alt Text 2" width="600">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="assets/query.png" alt="Alt Text 3" width="600">
-    </td>
-    <td align="center">
-      <img src="assets/response.png" alt="Alt Text 4" width="600">
-    </td>
-  </tr>
-</table>
+<div style="display: flex; flex-direction: column;">
+    <img src="assets/home.png" style="width: 100%; height: auto; margin-bottom: 10px;">
+    <img src="assets/options.png" style="width: 100%; height: auto; margin-bottom: 10px;">
+    <img src="assets/query.png" style="width: 100%; height: auto; margin-bottom: 10px;">
+    <img src="assets/response.png" style="width: 100%; height: auto; margin-bottom: 10px;">
+</div>
