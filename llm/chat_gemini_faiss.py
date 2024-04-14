@@ -116,18 +116,18 @@ def run_pipeline(
     return response
 
 if __name__ == "__main__":
-    homepage_url = "https://ravi0531rp.github.io/web-rag/index.html"
+    homepage_url = "http://colah.github.io/posts/2015-08-Understanding-LSTMs/"
     user_question = (
-        "What is the accuracy for Object Detection Classifier and which model is used?"
+        "How is the cell state updated?"
     )
-    project_name = "WEB_RAG_DEMO"
+    project_name = "WEB_RAG_DEMO2"
     response = run_pipeline(homepage_url, 
         user_question, 
         project_name, 
-        scrape_fresh = False,
+        scrape_fresh = True,
         read_fresh = True,
-        scrape_depth = None,
-        save_db = False,
+        scrape_depth = 0,
+        save_db = True,
         embedding_model = "models/embedding-001",
         llm = "gemini-pro",
         temperature = 0.1)
