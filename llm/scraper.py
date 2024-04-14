@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 from loguru import logger
 from utils import load_json, write_json
 
+def is_github_io_link(url):
+    return re.match(r"^https?://.*\.github\.io/.*", url) is not None
 
 def get_links(url):
     response = requests.get(url)
@@ -17,27 +19,30 @@ def get_links(url):
         links = soup.find_all("a")
         base_url = url
         link_list = [urljoin(base_url, link.get("href")) for link in links]
-        return link_list
+        final_list = []
+        for ll in link_list:
+            if is_github_io_link(ll):
+                final_list.append(ll)
+        return final_list
     else:
         logger.error("Failed to fetch the webpage. Status code:", response.status_code)
         return []
 
 
-def is_github_io_link(url):
-    return re.match(r"^https?://.*\.github\.io/.*", url) is not None
 
-
-def crawl_page(homepage_url):
+def crawl_page(homepage_url, scrape_depth=1):
     visited_links = {}
-    queue = deque([homepage_url])
+    queue = deque([(homepage_url, 0)])  # Each item in the queue is a tuple: (url, depth)
 
     while queue:
-        current_url = queue.popleft()
+        current_url, current_depth = queue.popleft()
 
         if current_url in visited_links:
             continue
 
-        logger.info(f"Visiting webpage: {current_url}")
+        if current_depth > scrape_depth:
+            break
+
 
         links_on_page = get_links(current_url)
         logger.info(f"Links found on the webpage {current_url}: {links_on_page}")
@@ -46,13 +51,14 @@ def crawl_page(homepage_url):
 
         if links_on_page:
             for link in links_on_page:
-                logger.success(link)
                 if is_github_io_link(link) and link not in visited_links:
-                    queue.append(link)
+                    queue.append((link, current_depth + 1))
+
         else:
             logger.info(f"No links found on the webpage {current_url}.")
 
     return visited_links
+
 
 
 def get_all_links(data_dict):
@@ -66,9 +72,11 @@ def get_all_links(data_dict):
 def extract_text_from_page(url):
     try:
         response = requests.get(url)
-        if response.status_code == 200:
-            soup = BeautifulSoup(response.text, "html.parser")
+        content_type = response.headers.get('content-type', '').lower()
 
+        if 'html' in content_type:
+            # Parse HTML content
+            soup = BeautifulSoup(response.text, "html.parser")
             text_blocks = []
             for element in soup.find_all(
                 ["p", "table", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li"]
@@ -76,16 +84,28 @@ def extract_text_from_page(url):
                 text = element.get_text(separator=" ", strip=True)
                 if text:
                     text_blocks.append(text)
-
             return text_blocks
+
+        elif 'xml' in content_type:
+            # Parse XML content
+            soup = BeautifulSoup(response.text, "xml")
+            text_blocks = []
+            for element in soup.find_all():
+                text = element.get_text(separator=" ", strip=True)
+                if text:
+                    text_blocks.append(text)
+            return text_blocks
+
         else:
             logger.error(
-                f"Failed to fetch the webpage {url}. Status code:", response.status_code
+                f"Unsupported content type for the webpage {url}: {content_type}"
             )
             return []
+
     except Exception as e:
         logger.error(f"Error occurred while processing the webpage {url}: {e}")
         return []
+
 
 
 def run_complete(
@@ -97,7 +117,7 @@ def run_complete(
 ):
     visited_links = None
     if scrape_fresh:
-        visited_links = crawl_page(homepage_url)
+        visited_links = crawl_page(homepage_url, scrape_depth)
         os.makedirs(f"./assets/{project_name}/urls/", exist_ok=True)
         write_json(visited_links, f"./assets/{project_name}/urls/visited_links.json")
     else:
@@ -124,13 +144,13 @@ def run_complete(
 
 
 if __name__ == "__main__":
-    homepage_url = "https://ravi0531rp.github.io/web-rag/index.html"
+    homepage_url = "https://colah.github.io/posts/2015-08-Understanding-LSTMs/"
     extracted_data_dict = run_complete(
         homepage_url,
         "WEB_RAG_DEMO",
-        scrape_fresh=False,
-        read_fresh=False,
-        scrape_depth=None,
+        scrape_fresh=True,
+        read_fresh=True,
+        scrape_depth=1,
     )
 
 
